@@ -77,6 +77,7 @@ jobs:
           tags: 4351689722/python-portfolio-analysis:test
     
   telegram-messager:
+    needs: [build, push_to_registries]
     runs-on: ubuntu-latest
     steps:
       - name: send telegram message on push
