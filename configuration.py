@@ -33,27 +33,6 @@ class Config:
             #  config file found and yaml-parser installed
             with open(self.config_file_name) as config_file:
                 self.__config = yaml.safe_load(config_file)
-        if self.__config == {}:
-            #  Если файла нет - пробуем заполнить его из старой версии конфигурации
-            logger.info('getting account data..')
-            if not os.path.isfile("my_account.txt"):
-                logger.critical("Default (my_account.txt) config file not found!")
-                exit()
-            with open(file='my_account.txt') as token_file:
-                my_token = token_file.readline().rstrip('\n')
-                my_timezone = token_file.readline().rstrip('\n')
-                start_year = token_file.readline().rstrip('\n')
-                start_month = token_file.readline().rstrip('\n')
-                start_day = token_file.readline().rstrip('\n')
-
-            self.__config.update({
-                'token': my_token,
-                'timezone': my_timezone,
-                'start_year': int(start_year),
-                'start_month': int(start_month),
-                'start_day': int(start_day),
-            })
-            self._write_config_to_file()
 
     def _write_config_to_file(self):
         if not yaml_installed:

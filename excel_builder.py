@@ -300,11 +300,11 @@ def build_excel_file(account, my_positions, my_operations, rates_today_cb, marke
         # PayIn - PayOut
         worksheet_port.write(s_row + 2, s_col, 'PayIn - PayOut', cell_format['bold_right'])
         worksheet_port.write(s_row + 2, s_col + 1, payin_payout, cell_format['RUB'])
-        # Commissions payed
-        worksheet_port.write(s_row + 4, s_col, 'Commissions payed', cell_format['bold_right'])
+        # Commissions paid
+        worksheet_port.write(s_row + 4, s_col, 'Commissions paid', cell_format['bold_right'])
         worksheet_port.write(s_row + 4, s_col + 1, sum_profile['brokercommission'] + sum_profile['servicecommission'], cell_format['RUB'])
-        # Taxes payed
-        worksheet_port.write(s_row + 5, s_col, 'Taxes payed', cell_format['bold_right'])
+        # Taxes paid
+        worksheet_port.write(s_row + 5, s_col, 'Taxes paid', cell_format['bold_right'])
         worksheet_port.write(s_row + 5, s_col + 1, sum_profile['tax'] + sum_profile['taxcoupon'] + sum_profile['taxdividend'], cell_format['RUB'])
         # Clean portfolio (market value without exp.taxes)
         clean_portfolio = portfolio_cost_rub_market - sum_profile['exp_tax']
@@ -621,9 +621,9 @@ def build_excel_file(account, my_positions, my_operations, rates_today_cb, marke
             ['Investing period', 'период инвестирования. Сколько лет, месяцев, дней с даты,'
                                  'которая указана в my_account.txt до сегодняшнего дня', 0],
             ['PayIn - PayOut', 'разница между заведёнными на счёт средствами и выведенными. ', 0],
-            ['Commissions payed', 'сумма всех уплаченных комиссий'
+            ['Commissions paid', 'сумма всех уплаченных комиссий'
                                   ' (За торговлю и за обслуживаение)', 0],
-            ['Taxes payed', 'сумма всех уплаченных налогов'
+            ['Taxes paid', 'сумма всех уплаченных налогов'
                             ' (Закрытие позиций, купоны и дивиденды)', 0],
             ['Clean portfolio', ' - стоимость портфеля, очищенная от налога, '
                                 'начисляемого при закрытии всех позиций. '
